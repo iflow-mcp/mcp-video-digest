@@ -1,9 +1,10 @@
 from typing import Optional, Dict
-from speechmatics.models import ConnectionSettings
-from speechmatics.batch_client import BatchClient
-from httpx import HTTPStatusError
-from config.settings import settings
 
+from httpx import HTTPStatusError
+from speechmatics.batch_client import BatchClient
+from speechmatics.models import ConnectionSettings
+
+from src.config.settings import settings
 from .base import BaseTranscriptionService, Context
 
 class SpeechmaticsTranscriptionService(BaseTranscriptionService):

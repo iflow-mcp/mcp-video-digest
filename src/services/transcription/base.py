@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import Optional, Protocol
-from config.settings import settings
+
 
 class Context(Protocol):
     def log(self, message: str) -> None:

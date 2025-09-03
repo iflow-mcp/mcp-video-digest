@@ -1,12 +1,13 @@
+import os
+
 from mcp.server.fastmcp import FastMCP
+
+from src.config.settings import settings
 from src.services.download.youtube import YouTubeDownloader
-from src.services.transcription.base import Context
+from src.services.transcription.assemblyai import AssemblyAITranscriptionService
 from src.services.transcription.deepgram import DeepgramTranscriptionService
 from src.services.transcription.gladia import GladiaTranscriptionService
 from src.services.transcription.speechmatics import SpeechmaticsTranscriptionService
-from src.services.transcription.assemblyai import AssemblyAITranscriptionService
-from config.settings import settings
-import os
 
 mcp = FastMCP(
     name='video-digest',
@@ -93,6 +94,10 @@ async def get_video_content(url: str):
     ctx = MCPContext(mcp)
     return await service.process_video(url,ctx=ctx)
 
+def main():
+    """Main entry point for the video-digest command"""
+    print("Starting video transcription service...")
+    mcp.run(transport="stdio")
+
 if __name__ == "__main__":
-    print("Starting video transcription service...")    
-    mcp.run(transport="sse")
+    main()

@@ -20,7 +20,7 @@ dependencies = [
 ]
 
 [project.scripts]
-video-digest = "src.main:mcp"
+video-digest = "src.main:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src"]
@@ -28,6 +28,5 @@ packages = ["src"]
 [tool.hatch.build]
 include = [
     "src/**/*.py",
-    "config/**/*.py",
     "tests/**/*.py"
 ]
